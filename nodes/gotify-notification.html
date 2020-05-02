@@ -1,0 +1,53 @@
+<script type="text/javascript">
+  RED.nodes.registerType('gotify-notification',{
+    category: 'Gotify',
+    defaults: {
+      server: { value:"" , type: "gotify-server", required: true },
+      title: { value: "", required: true }
+    },
+    inputs: 1,
+    align: 'right',
+    color: '#3498db',
+    icon: "font-awesome/fa-message",
+    paletteLabel: 'notification',
+    label: function() {
+      return this.title || "notification";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="gotify-notification">
+  <div class="form-row">
+    <label for="node-input-server"><i class="icon-tag"></i> Server</label>
+    <select id="node-input-server"></select>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-title"><i class="icon-tag"></i> Title</label>
+    <input type="text" id="node-input-title" placeholder="Title">
+  </div>
+
+</script>
+
+<script type="text/html" data-help-name="gotify-notification">
+  <p>Send message using gotify server <code>msg.payload</code>. You can find more info <a href="https://gotify.net/docs/pushmsg">here</a></p>
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>title
+      <span class="property-type">string</span>
+    </dt>
+    <dd> notification title. </dd>
+    <dt>payload
+      <span class="property-type">string</span>
+    </dt>
+    <dd> content for notification. </dd>
+    <dt>priority
+      <span class="property-type">number</span>
+    </dt>
+    <dd> priority for notification. </dd>
+    <dt>extras
+      <span class="property-type">object</span>
+    </dt>
+    <dd> Extras are used to carry extra information, change how clients behave, etc. Extras are stored in a key-value schema. <a href="https://gotify.net/docs/msgextras">More info here</a></dd>
+  </dl>
+</script>
