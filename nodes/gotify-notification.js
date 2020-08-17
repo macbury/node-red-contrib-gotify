@@ -41,7 +41,7 @@ module.exports = function(RED) {
         formData.extras = extras
       }
     
-      request.post(this.server.endpointUrl, { formData }, (error, response, body) => {
+      request.post(this.server.endpointUrl, { json: formData }, (error, response, body) => {
         if (!error && response.statusCode == 200) {
           this.status({
             fill: "green",
